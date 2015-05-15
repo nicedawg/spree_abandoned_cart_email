@@ -23,7 +23,7 @@ Spree::Order.class_eval do
     # Don't send anything if the order has no line items.
     return if line_items.empty?
 
-    Spree::AbandonedCartMailer.abandoned_email(self).deliver
+    Spree::AbandonedCartMailer.abandoned_email(self).deliver_now
     mark_abandoned_email_as_sent
   end
 
